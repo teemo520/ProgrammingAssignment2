@@ -1,6 +1,7 @@
-## This function creates a special "matrix" (list) object
-# that can cache its inverse.
-
+# makeCacheMatrix will create an environment to store the matrix and its inverse matrix
+# it will return a list of functions like APIs, you can set/get the matrix, and set/get the 
+# inverse matrix. The inverse of the specified matrix will be set to null while the data is set 
+# by the function set
 
 makeCacheMatrix<-function(x=matrix()){
 	matrix_inverse<-NULL;
@@ -18,10 +19,10 @@ makeCacheMatrix<-function(x=matrix()){
 
 
 
-#＃ The following function calculates his function computes the inverse of the special
-#＃ "matrix" (list) returned by `makeCacheMatrix` above. If the inverse has
-#＃ already been calculated (and the matrix has not changed), then
-#＃ `cacheSolve` should retrieve the inverse from the cache.
+# cacheSolve function accepts the environment created by makeCacheMatrix, it firstly
+# check whether the inverse is null, if it is, then calculate the inverse matrix using solve 
+# function, or it will directly return the cached inverse matrix which has been calculated 
+# before
 
 
 cacheSolve<-function(x,...){
